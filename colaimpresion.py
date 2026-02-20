@@ -2,6 +2,8 @@ import threading
 import queue
 import time
 import random
+import json
+from datetime import datetime
 
 # Configuración
 NUM_EMPLEADOS = 3
@@ -9,6 +11,10 @@ DOCUMENTOS_POR_EMPLEADO = 5
 
 # Cola FIFO de impresión
 cola_impresion = queue.Queue()
+
+# Registro de actividades
+registro = []
+lock = threading.Lock()  # Para acceso seguro al registro
 
 
 class Empleado(threading.Thread):
@@ -23,6 +29,16 @@ class Empleado(threading.Thread):
             documento = f"Doc-{i} (Empleado {self.id_empleado})"
             
             self.cola.put(documento)
+            
+            # Registrar envío
+            with lock:
+                registro.append({
+                    "evento": "enviado",
+                    "documento": documento,
+                    "empleado": self.id_empleado,
+                    "timestamp": datetime.now().isoformat()
+                })
+            
             print(f"[Empleado {self.id_empleado}] Envió {documento}")
 
         print(f"[Empleado {self.id_empleado}] Terminó de enviar documentos.")
@@ -41,6 +57,15 @@ class Impresora(threading.Thread):
             if documento is None:
                 self.cola.task_done()
                 break
+            
+            # Registrar impresión
+            with lock:
+                registro.append({
+                    "evento": "impreso",
+                    "documento": documento,
+                    "timestamp": datetime.now().isoformat()
+                })
+
 
             print(f"    [Impresora] Imprimiendo {documento}...")
             time.sleep(random.uniform(1, 3))  # Tiempo de impresión
@@ -67,6 +92,19 @@ def main():
     for empleado in empleados:
         empleado.join()
 
+    
+    # Guardar registro en JSON
+    with open("reporte_impresion.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "sistema": "Cola FIFO",
+            "configuracion": {
+                "num_empleados": NUM_EMPLEADOS,
+                "documentos_por_empleado": DOCUMENTOS_POR_EMPLEADO
+            },
+            "registro": registro
+        }, f, indent=2, ensure_ascii=False)
+    
+    print("✓ Reporte guardado en 'reporte_impresion.json'")
     # Esperar a que se impriman todos los documentos
     cola_impresion.join()
 

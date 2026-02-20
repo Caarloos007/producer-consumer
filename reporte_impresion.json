@@ -1,0 +1,119 @@
+{
+  "sistema": "Cola FIFO",
+  "configuracion": {
+    "num_empleados": 3,
+    "documentos_por_empleado": 5
+  },
+  "registro": [
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 2)",
+      "empleado": 2,
+      "timestamp": "2026-02-20T19:32:59.564143"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 2)",
+      "timestamp": "2026-02-20T19:32:59.564413"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 1)",
+      "empleado": 1,
+      "timestamp": "2026-02-20T19:32:59.824019"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 3)",
+      "empleado": 3,
+      "timestamp": "2026-02-20T19:33:00.263097"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 2)",
+      "empleado": 2,
+      "timestamp": "2026-02-20T19:33:00.842568"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 3)",
+      "empleado": 3,
+      "timestamp": "2026-02-20T19:33:00.941051"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 1)",
+      "timestamp": "2026-02-20T19:33:01.080442"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 1)",
+      "empleado": 1,
+      "timestamp": "2026-02-20T19:33:01.369575"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 2)",
+      "empleado": 2,
+      "timestamp": "2026-02-20T19:33:01.721854"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 1)",
+      "empleado": 1,
+      "timestamp": "2026-02-20T19:33:01.893604"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 2)",
+      "empleado": 2,
+      "timestamp": "2026-02-20T19:33:02.420142"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 3)",
+      "empleado": 3,
+      "timestamp": "2026-02-20T19:33:02.564279"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 3)",
+      "timestamp": "2026-02-20T19:33:03.045063"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 1)",
+      "empleado": 1,
+      "timestamp": "2026-02-20T19:33:03.432447"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 2)",
+      "empleado": 2,
+      "timestamp": "2026-02-20T19:33:03.483072"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 1)",
+      "empleado": 1,
+      "timestamp": "2026-02-20T19:33:04.300413"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 3)",
+      "empleado": 3,
+      "timestamp": "2026-02-20T19:33:04.378307"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-2 (Empleado 2)",
+      "timestamp": "2026-02-20T19:33:05.254974"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 3)",
+      "empleado": 3,
+      "timestamp": "2026-02-20T19:33:05.773104"
+    }
+  ]
+}

@@ -2,6 +2,8 @@ import threading
 import queue
 import time
 import random
+import json
+from datetime import datetime
 
 # Configuración
 NUM_EMPLEADOS = 3
@@ -10,6 +12,10 @@ NUM_IMPRESORAS = 2
 
 # Cola con prioridad (menor número = mayor prioridad)
 cola_impresion = queue.PriorityQueue()
+
+# Registro de actividades
+registro = []
+lock = threading.Lock()  # Para acceso seguro al registro
 
 
 class Empleado(threading.Thread):
@@ -28,6 +34,16 @@ class Empleado(threading.Thread):
             # Se añade tupla (prioridad, contador, documento)
             # contador evita conflictos si prioridades son iguales
             self.cola.put((prioridad, time.time(), documento))
+
+            # Registrar envío
+            with lock:
+                registro.append({
+                    "evento": "enviado",
+                    "documento": documento,
+                    "empleado": self.id_empleado,
+                    "prioridad": prioridad,
+                    "timestamp": datetime.now().isoformat()
+                })
 
             print(f"[Empleado {self.id_empleado}] Envió {documento} con prioridad {prioridad}")
 
@@ -52,6 +68,16 @@ class Impresora(threading.Thread):
     def run(self):
         while True:
             prioridad, timestamp, documento = self.cola.get()
+
+            # Registrar impresión
+            with lock:
+                registro.append({
+                    "evento": "impreso",
+                    "documento": documento,
+                    "impresora": self.id_impresora,
+                    "prioridad": prioridad,
+                    "timestamp": datetime.now().isoformat()
+                })
 
             if documento is None:
                 self.cola.task_done()
@@ -86,6 +112,20 @@ def main():
         emp.join()
 
     # Esperar que se impriman todos
+    
+    # Guardar registro en JSON
+    with open("reporte_impresion_prioridad.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "sistema": "Cola con Prioridad",
+            "configuracion": {
+                "num_empleados": NUM_EMPLEADOS,
+                "documentos_por_empleado": DOCUMENTOS_POR_EMPLEADO,
+                "num_impresoras": NUM_IMPRESORAS
+            },
+            "registro": registro
+        }, f, indent=2, ensure_ascii=False)
+    
+    print("✓ Reporte guardado en 'reporte_impresion_prioridad.json'")
     cola_impresion.join()
 
     # Señal de parada para cada impresora

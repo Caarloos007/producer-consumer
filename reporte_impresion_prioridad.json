@@ -1,0 +1,150 @@
+{
+  "sistema": "Cola con Prioridad",
+  "configuracion": {
+    "num_empleados": 3,
+    "documentos_por_empleado": 5,
+    "num_impresoras": 2
+  },
+  "registro": [
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 2)",
+      "empleado": 2,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:34.488875"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 2)",
+      "impresora": 1,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:34.489324"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 3)",
+      "empleado": 3,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:34.585219"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 3)",
+      "impresora": 2,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:34.585299"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 3)",
+      "empleado": 3,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:35.376132"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-1 (Empleado 1)",
+      "empleado": 1,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:35.533548"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 2)",
+      "empleado": 2,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:35.697171"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 2)",
+      "empleado": 2,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:36.463303"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-1 (Empleado 1)",
+      "impresora": 2,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:37.174745"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-3 (Empleado 2)",
+      "impresora": 1,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:37.233223"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 3)",
+      "empleado": 3,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:37.235631"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-2 (Empleado 1)",
+      "empleado": 1,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:37.453587"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 3)",
+      "empleado": 3,
+      "prioridad": 1,
+      "timestamp": "2026-02-20T19:29:38.077523"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 2)",
+      "empleado": 2,
+      "prioridad": 2,
+      "timestamp": "2026-02-20T19:29:38.232950"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-3 (Empleado 1)",
+      "empleado": 1,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:38.479211"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 3)",
+      "empleado": 3,
+      "prioridad": 3,
+      "timestamp": "2026-02-20T19:29:38.817827"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 2)",
+      "empleado": 2,
+      "prioridad": 1,
+      "timestamp": "2026-02-20T19:29:39.121710"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-4 (Empleado 1)",
+      "empleado": 1,
+      "prioridad": 1,
+      "timestamp": "2026-02-20T19:29:39.251571"
+    },
+    {
+      "evento": "impreso",
+      "documento": "Doc-4 (Empleado 3)",
+      "impresora": 1,
+      "prioridad": 1,
+      "timestamp": "2026-02-20T19:29:39.878410"
+    },
+    {
+      "evento": "enviado",
+      "documento": "Doc-5 (Empleado 1)",
+      "empleado": 1,
+      "prioridad": 1,
+      "timestamp": "2026-02-20T19:29:40.884587"
+    }
+  ]
+}
